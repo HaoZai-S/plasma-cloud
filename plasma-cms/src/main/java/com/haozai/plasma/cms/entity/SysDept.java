@@ -3,12 +3,14 @@ package com.haozai.plasma.cms.entity;
 import java.util.Date;
 import javax.persistence.*;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 /**
  * 部门表
  */
 @Data
 @Table(name = "sys_dept")
+@Accessors(chain = true)
 public class SysDept {
     /**
      * 部门id

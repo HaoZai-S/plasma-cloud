@@ -3,12 +3,14 @@ package com.haozai.plasma.cms.entity;
 import java.util.Date;
 import javax.persistence.*;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 /**
  * 用户信息表
  */
 @Data
 @Table(name = "sys_user")
+@Accessors(chain = true)
 public class SysUser {
     /**
      * 用户ID

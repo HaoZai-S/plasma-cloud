@@ -3,12 +3,14 @@ package com.haozai.plasma.cms.entity;
 import java.util.Date;
 import javax.persistence.*;
 import lombok.Data;
+import lombok.experimental.Accessors;
 
 /**
     * 岗位信息表
     */
 @Data
 @Table(name = "sys_post")
+@Accessors(chain = true)
 public class SysPost {
     /**
      * 岗位ID
