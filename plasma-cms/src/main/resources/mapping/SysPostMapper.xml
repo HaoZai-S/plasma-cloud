@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haozai.plasma.cms.mapper.SysPostMapper">
+  <resultMap id="BaseResultMap" type="com.haozai.plasma.cms.entity.SysPost">
+    <!--@mbg.generated generated on Wed Jan 05 16:11:20 CST 2022.-->
+    <!--@Table sys_post-->
+    <id column="post_id" jdbcType="BIGINT" property="postId" />
+    <result column="post_code" jdbcType="VARCHAR" property="postCode" />
+    <result column="post_name" jdbcType="VARCHAR" property="postName" />
+    <result column="post_sort" jdbcType="INTEGER" property="postSort" />
+    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Wed Jan 05 16:11:20 CST 2022.-->
+    post_id, post_code, post_name, post_sort, `status`, create_by, create_time, update_by, 
+    update_time, remark
+  </sql>
+  <update id="updateBatch" parameterType="java.util.List">
+    <!--@mbg.generated generated on Wed Jan 05 16:11:20 CST 2022.-->
+    update sys_post
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="post_code = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when post_id = #{item.postId,jdbcType=BIGINT} then #{item.postCode,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="post_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when post_id = #{item.postId,jdbcType=BIGINT} then #{item.postName,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="post_sort = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when post_id = #{item.postId,jdbcType=BIGINT} then #{item.postSort,jdbcType=INTEGER}
+        </foreach>
+      </trim>
+      <trim prefix="`status` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when post_id = #{item.postId,jdbcType=BIGINT} then #{item.status,jdbcType=CHAR}
+        </foreach>
+      </trim>
+      <trim prefix="create_by = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when post_id = #{item.postId,jdbcType=BIGINT} then #{item.createBy,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when post_id = #{item.postId,jdbcType=BIGINT} then #{item.createTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="update_by = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when post_id = #{item.postId,jdbcType=BIGINT} then #{item.updateBy,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+      <trim prefix="update_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when post_id = #{item.postId,jdbcType=BIGINT} then #{item.updateTime,jdbcType=TIMESTAMP}
+        </foreach>
+      </trim>
+      <trim prefix="remark = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          when post_id = #{item.postId,jdbcType=BIGINT} then #{item.remark,jdbcType=VARCHAR}
+        </foreach>
+      </trim>
+    </trim>
+    where post_id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.postId,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <update id="updateBatchSelective" parameterType="java.util.List">
+    <!--@mbg.generated generated on Wed Jan 05 16:11:20 CST 2022.-->
+    update sys_post
+    <trim prefix="set" suffixOverrides=",">
+      <trim prefix="post_code = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.postCode != null">
+            when post_id = #{item.postId,jdbcType=BIGINT} then #{item.postCode,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="post_name = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.postName != null">
+            when post_id = #{item.postId,jdbcType=BIGINT} then #{item.postName,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="post_sort = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.postSort != null">
+            when post_id = #{item.postId,jdbcType=BIGINT} then #{item.postSort,jdbcType=INTEGER}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="`status` = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.status != null">
+            when post_id = #{item.postId,jdbcType=BIGINT} then #{item.status,jdbcType=CHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="create_by = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.createBy != null">
+            when post_id = #{item.postId,jdbcType=BIGINT} then #{item.createBy,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="create_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.createTime != null">
+            when post_id = #{item.postId,jdbcType=BIGINT} then #{item.createTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="update_by = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.updateBy != null">
+            when post_id = #{item.postId,jdbcType=BIGINT} then #{item.updateBy,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="update_time = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.updateTime != null">
+            when post_id = #{item.postId,jdbcType=BIGINT} then #{item.updateTime,jdbcType=TIMESTAMP}
+          </if>
+        </foreach>
+      </trim>
+      <trim prefix="remark = case" suffix="end,">
+        <foreach collection="list" index="index" item="item">
+          <if test="item.remark != null">
+            when post_id = #{item.postId,jdbcType=BIGINT} then #{item.remark,jdbcType=VARCHAR}
+          </if>
+        </foreach>
+      </trim>
+    </trim>
+    where post_id in
+    <foreach close=")" collection="list" item="item" open="(" separator=", ">
+      #{item.postId,jdbcType=BIGINT}
+    </foreach>
+  </update>
+  <insert id="batchInsert" keyColumn="post_id" keyProperty="postId" parameterType="map" useGeneratedKeys="true">
+    <!--@mbg.generated generated on Wed Jan 05 16:11:20 CST 2022.-->
+    insert into sys_post
+    (post_code, post_name, post_sort, `status`, create_by, create_time, update_by, update_time, 
+      remark)
+    values
+    <foreach collection="list" item="item" separator=",">
+      (#{item.postCode,jdbcType=VARCHAR}, #{item.postName,jdbcType=VARCHAR}, #{item.postSort,jdbcType=INTEGER}, 
+        #{item.status,jdbcType=CHAR}, #{item.createBy,jdbcType=VARCHAR}, #{item.createTime,jdbcType=TIMESTAMP}, 
+        #{item.updateBy,jdbcType=VARCHAR}, #{item.updateTime,jdbcType=TIMESTAMP}, #{item.remark,jdbcType=VARCHAR}
+        )
+    </foreach>
+  </insert>
+  <insert id="insertOrUpdate" keyColumn="post_id" keyProperty="postId" parameterType="com.haozai.plasma.cms.entity.SysPost" useGeneratedKeys="true">
+    <!--@mbg.generated generated on Wed Jan 05 16:11:20 CST 2022.-->
+    insert into sys_post
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="postId != null">
+        post_id,
+      </if>
+      post_code,
+      post_name,
+      post_sort,
+      `status`,
+      create_by,
+      create_time,
+      update_by,
+      update_time,
+      remark,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="postId != null">
+        #{postId,jdbcType=BIGINT},
+      </if>
+      #{postCode,jdbcType=VARCHAR},
+      #{postName,jdbcType=VARCHAR},
+      #{postSort,jdbcType=INTEGER},
+      #{status,jdbcType=CHAR},
+      #{createBy,jdbcType=VARCHAR},
+      #{createTime,jdbcType=TIMESTAMP},
+      #{updateBy,jdbcType=VARCHAR},
+      #{updateTime,jdbcType=TIMESTAMP},
+      #{remark,jdbcType=VARCHAR},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="postId != null">
+        post_id = #{postId,jdbcType=BIGINT},
+      </if>
+      post_code = #{postCode,jdbcType=VARCHAR},
+      post_name = #{postName,jdbcType=VARCHAR},
+      post_sort = #{postSort,jdbcType=INTEGER},
+      `status` = #{status,jdbcType=CHAR},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="post_id" keyProperty="postId" parameterType="com.haozai.plasma.cms.entity.SysPost" useGeneratedKeys="true">
+    <!--@mbg.generated generated on Wed Jan 05 16:11:20 CST 2022.-->
+    insert into sys_post
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="postId != null">
+        post_id,
+      </if>
+      <if test="postCode != null">
+        post_code,
+      </if>
+      <if test="postName != null">
+        post_name,
+      </if>
+      <if test="postSort != null">
+        post_sort,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateBy != null">
+        update_by,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="remark != null">
+        remark,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="postId != null">
+        #{postId,jdbcType=BIGINT},
+      </if>
+      <if test="postCode != null">
+        #{postCode,jdbcType=VARCHAR},
+      </if>
+      <if test="postName != null">
+        #{postName,jdbcType=VARCHAR},
+      </if>
+      <if test="postSort != null">
+        #{postSort,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="createBy != null">
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="postId != null">
+        post_id = #{postId,jdbcType=BIGINT},
+      </if>
+      <if test="postCode != null">
+        post_code = #{postCode,jdbcType=VARCHAR},
+      </if>
+      <if test="postName != null">
+        post_name = #{postName,jdbcType=VARCHAR},
+      </if>
+      <if test="postSort != null">
+        post_sort = #{postSort,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=CHAR},
+      </if>
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null">
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null">
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>
