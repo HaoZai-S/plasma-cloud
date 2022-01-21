@@ -1,11 +1,12 @@
-package com.haozai.plasma.cms;
+package com.haozai.plasma.common.redis;
+
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CMSApplication {
+public class RedisApplication {
     public static void main(String[] args) {
-        SpringApplication.run(CMSApplication.class, args);
+        SpringApplication.run(RedisApplication.class, args);
     }
 }

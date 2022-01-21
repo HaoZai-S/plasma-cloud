@@ -15,3 +15,13 @@ https://gitee.com/mingSoft/MCMS
 
 数据库
 plasma-cloud
+
+
+nacos
+
+https://www.jianshu.com/p/3d3e17bc629f
+
+
+
+顺序：
+

@@ -3,26 +3,24 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>plasma-cloud</artifactId>
+        <artifactId>plasma-common</artifactId>
         <groupId>com.haozai</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>plasma-common</artifactId>
-    <packaging>pom</packaging>
-    <description>
-        common通用工具
-    </description>
-    <modules>
-        <module>plasma-common-core</module>
-        <module>plasma-common-redis</module>
-    </modules>
+    <artifactId>plasma-common-redis</artifactId>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
